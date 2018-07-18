@@ -8,23 +8,23 @@
 
 import Foundation
 
-extension Alert {
+extension _Alert {
     
-    typealias Action = ()->()
+    public typealias Action = ()->()
     
-    struct Item {
+    public struct Item {
         
-        var icon: UIImage?
-        var title: String = ""
-        var handler: Action?
+        public var icon: UIImage?
+        public var title: String = ""
+        public var handler: Action?
         
-        init(icon: UIImage?, title: String, handler: Action?) {
+        public init(icon: UIImage?, title: String, handler: Action?) {
             self.icon = icon
             self.title = title
             self.handler = handler
         }
         
-        init() {
+        public init() {
             
         }
     }
