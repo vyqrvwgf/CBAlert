@@ -52,7 +52,7 @@ class AlertViewController: UIViewController {
     }
     */
     
-    let alert = Alert(contentClazz: ContentItem.self, cancelClazz: CancelItem.self)
+    let alert = Alert(contentClazz: ContentItem.self, cancelClazz: nil)
     
     // MARK: - Custom Method
     @objc private func onTapMore() {
