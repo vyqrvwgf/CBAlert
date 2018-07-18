@@ -1,2 +1,2 @@
 # CBAlert
-An quick Alert
+A quick Alert
