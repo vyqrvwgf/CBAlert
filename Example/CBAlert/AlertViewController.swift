@@ -19,19 +19,19 @@ class AlertViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "more", style: .plain, target: self, action: #selector(onTapMore))
         
         alert
-            .add(of: Alert.Item(icon: nil, title: "1", handler: {
+            .add(of: _Alert.Item(icon: nil, title: "1", handler: {
                 
             }))
-            .add(of: Alert.Item(icon: nil, title: "2", handler: {
+            .add(of: _Alert.Item(icon: nil, title: "2", handler: {
                 
             }))
-            .add(of: Alert.Item(icon: nil, title: "3", handler: {
+            .add(of: _Alert.Item(icon: nil, title: "3", handler: {
                 
             }))
-            .add(of: Alert.Item(icon: nil, title: "4", handler: {
+            .add(of: _Alert.Item(icon: nil, title: "4", handler: {
                 
             }))
-            .add(of: Alert.Item(icon: nil, title: "5", handler: {
+            .add(of: _Alert.Item(icon: nil, title: "5", handler: {
                 
             }))
     }
@@ -52,7 +52,7 @@ class AlertViewController: UIViewController {
     }
     */
     
-    let alert = Alert(contentClazz: ContentItem.self, cancelClazz: nil)
+    let alert = _Alert(contentClazz: ContentItem.self, cancelClazz: CancelItem.self)
     
     // MARK: - Custom Method
     @objc private func onTapMore() {
@@ -90,7 +90,7 @@ class ContentItem: NSObject, Content {
         return view
     }()
     
-    func set(with items: [Alert.Item]) {
+    func set(with items: [_Alert.Item]) {
         subview.frame = CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.width, height: CGFloat(items.count)*50.0)
     }
     
