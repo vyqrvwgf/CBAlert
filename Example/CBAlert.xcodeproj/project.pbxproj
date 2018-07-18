@@ -15,6 +15,7 @@
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		A2B3E3DC0966D40558B0F35E /* Pods_CBAlert_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC3613561C6219DCAA10B009 /* Pods_CBAlert_Tests.framework */; };
 		E0893483F90B02CE462C9912 /* Pods_CBAlert_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 480568E2D84E066F79E3BD7B /* Pods_CBAlert_Example.framework */; };
+		E676CDD920FF222500233B61 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E676CDD820FF222500233B61 /* AlertViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,8 +30,8 @@
 
 /* Begin PBXFileReference section */
 		30A71829B4861F9551DAB1FD /* Pods-CBAlert_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CBAlert_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-CBAlert_Example/Pods-CBAlert_Example.release.xcconfig"; sourceTree = "<group>"; };
-		3D2EC29BFE00B18D881D5BFB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		4315C82DDE2F082C94015694 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		3D2EC29BFE00B18D881D5BFB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		4315C82DDE2F082C94015694 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		480568E2D84E066F79E3BD7B /* Pods_CBAlert_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CBAlert_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* CBAlert_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CBAlert_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -43,8 +44,9 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		64B222B34F549F52EB149E01 /* Pods-CBAlert_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CBAlert_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CBAlert_Tests/Pods-CBAlert_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		74DE4E55D2EB4DE3A132B432 /* CBAlert.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = CBAlert.podspec; path = ../CBAlert.podspec; sourceTree = "<group>"; };
+		74DE4E55D2EB4DE3A132B432 /* CBAlert.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = CBAlert.podspec; path = ../CBAlert.podspec; sourceTree = "<group>"; };
 		CB5B95FA476BB9C1E7324CF9 /* Pods-CBAlert_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CBAlert_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CBAlert_Tests/Pods-CBAlert_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		E676CDD820FF222500233B61 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		E96B3B626522BA0BB4F74885 /* Pods-CBAlert_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CBAlert_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CBAlert_Example/Pods-CBAlert_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		EC3613561C6219DCAA10B009 /* Pods_CBAlert_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CBAlert_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -110,6 +112,7 @@
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
+				E676CDD820FF222500233B61 /* AlertViewController.swift */,
 			);
 			name = "Example for CBAlert";
 			path = CBAlert;
@@ -348,6 +351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				E676CDD920FF222500233B61 /* AlertViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
