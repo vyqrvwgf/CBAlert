@@ -21,6 +21,9 @@ class _Collection: NSObject, Content, UICollectionViewDataSource, UICollectionVi
         return collectionView
     }()
     
+    private var maskPath: UIBezierPath!
+    private var maskLayer = CAShapeLayer()
+    
     // MARK: - Life Cycle
     override init() {
         super.init()
@@ -75,6 +78,8 @@ class _Collection: NSObject, Content, UICollectionViewDataSource, UICollectionVi
                                       width: UIScreen.main.bounds.width,
                                       height: flowLayout.edge.top + CGFloat(row) * (flowLayout.height + 20.0) + flowLayout.edge.bottom)
         collectionView.reloadData()
+        
+        collectionView.layer.mask = corner()
     }
 }
 

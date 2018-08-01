@@ -93,6 +93,8 @@ class _Table: NSObject, Content, UITableViewDataSource, UITableViewDelegate {
             }.reduce(0.0, { $0 + $1 })
         tableView.frame = CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.width, height: totoalHeight)
         tableView.reloadData()
+        
+        tableView.mask?.layer = corner()
     }
 }
 

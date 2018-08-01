@@ -91,23 +91,23 @@ extension _Alert {
         }
         
         // MARK: - Life Cycle
-        override init(frame: CGRect) {
-            super.init(frame: frame)
-
-            let maskPath = UIBezierPath(roundedRect: self.bounds,
-                                        byRoundingCorners: [UIRectCorner.topLeft, UIRectCorner.topRight],
-                                        cornerRadii: CGSize(width: 5.0, height: 5.0))
-
-            let maskLayer = CAShapeLayer()
-            maskLayer.frame = self.bounds
-            maskLayer.path = maskPath.cgPath
-
-            layer.mask = maskLayer
-        }
-
-        required init?(coder aDecoder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
+//        override init(frame: CGRect) {
+//            super.init(frame: frame)
+//
+//            let maskPath = UIBezierPath(roundedRect: self.bounds,
+//                                        byRoundingCorners: [UIRectCorner.topLeft, UIRectCorner.topRight],
+//                                        cornerRadii: CGSize(width: 5.0, height: 5.0))
+//
+//            let maskLayer = CAShapeLayer()
+//            maskLayer.frame = self.bounds
+//            maskLayer.path = maskPath.cgPath
+//
+//            layer.mask = maskLayer
+//        }
+//
+//        required init?(coder aDecoder: NSCoder) {
+//            fatalError("init(coder:) has not been implemented")
+//        }
         
         deinit {
             print("Container deinit")

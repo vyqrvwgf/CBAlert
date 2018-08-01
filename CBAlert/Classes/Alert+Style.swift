@@ -12,6 +12,8 @@ extension _Alert {
     public enum _Style {
         case table
         case collection
+        
+        public static var _allCases: [_Style] = [.table, .collection]
     }
     
     public class func alert(with style: _Style) -> _Alert {

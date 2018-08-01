@@ -9,7 +9,24 @@
 import UIKit
 import CBAlert
 
-class AlertViewController: UIViewController {
+class AlertViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    private lazy var tableView: UITableView = {
+        let table = UITableView(frame: self.view.bounds, style: .plain)
+        table.dataSource = self
+        table.delegate = self
+        return table
+    }()
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return _Alert._Style._allCases.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(UITableViewCell.self), for: indexPath)
+        cell.textLabel?.text = _Alert._Style._allCases
+        return cell
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,46 +66,4 @@ class AlertViewController: UIViewController {
         
         alert.show()
     }
-}
-
-class CancelItem: NSObject, Cancel {
-    
-    private lazy var subview: UIView = {
-        let view = UIView(frame: CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.width, height: 44.0))
-        view.backgroundColor = .green
-        return view
-    }()
-    
-    func view() -> UIView {
-        return subview
-    }
-    
-    func frame() -> CGRect {
-        return subview.frame
-    }
-    
-    var dismiss: () -> () = { }
-}
-
-class ContentItem: NSObject, Content {
-    
-    private lazy var subview: UIView = {
-        let view = UIView(frame: .zero)
-        view.backgroundColor = .yellow
-        return view
-    }()
-    
-    func set(with items: [_Alert.Item]) {
-        subview.frame = CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.width, height: CGFloat(items.count)*50.0)
-    }
-    
-    func view() -> UIView {
-        return subview
-    }
-    
-    func frame() -> CGRect {
-        return subview.frame
-    }
-    
-    var dismiss: () -> () = { }
 }

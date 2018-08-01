@@ -23,6 +23,24 @@ public protocol Cancel {
     func frame() -> CGRect
 }
 
+internal extension Content {
+    
+    func corner() -> CAShapeLayer {
+        
+        let contentFrame = frame()
+        let bounds = CGRect(x: 0.0, y: 0.0, width: contentFrame.width, height: contentFrame.height)
+        
+        let maskPath = UIBezierPath(roundedRect: bounds,
+                                byRoundingCorners: [UIRectCorner.topLeft, UIRectCorner.topRight],
+                                cornerRadii: CGSize(width: 5.0, height: 5.0))
+        let maskLayer = CAShapeLayer()
+        maskLayer.frame = bounds
+        maskLayer.path = maskPath.cgPath
+        
+        return maskLayer
+    }
+}
+
 public class _Alert {
     
     // MARK: - Public
