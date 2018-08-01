@@ -10,7 +10,7 @@ import Foundation
 
 extension _Alert {
     
-    public typealias Action = ()->()
+    public typealias Action = (_ title: String)->()
     
     public struct Item {
         

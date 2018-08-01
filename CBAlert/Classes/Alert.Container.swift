@@ -19,7 +19,7 @@ extension _Alert {
         
         public var dismiss: (()->())?
         
-        var state: State = .dismiss {
+        internal var state: State = .dismiss {
             didSet {
                 switch state {
                 case .show:
@@ -60,7 +60,7 @@ extension _Alert {
         private var totoalHeight: CGFloat = 0.0
         
         // MARK: - Internal
-        var state: State = .dismiss {
+        internal var state: State = .dismiss {
             didSet {
                 switch state {
                 case .show:
@@ -71,7 +71,7 @@ extension _Alert {
             }
         }
         
-        func set(content: Content, cancel: Cancel?) {
+        internal func set(content: Content, cancel: Cancel?) {
             
             let _content = content.view()
             _content.frame = CGRect(x: 0.0, y: 0.0, width: _content.bounds.width, height: _content.bounds.height)
@@ -88,6 +88,25 @@ extension _Alert {
             }
             
             self.state = .dismiss
+        }
+        
+        // MARK: - Life Cycle
+        override init(frame: CGRect) {
+            super.init(frame: frame)
+
+            let maskPath = UIBezierPath(roundedRect: self.bounds,
+                                        byRoundingCorners: [UIRectCorner.topLeft, UIRectCorner.topRight],
+                                        cornerRadii: CGSize(width: 5.0, height: 5.0))
+
+            let maskLayer = CAShapeLayer()
+            maskLayer.frame = self.bounds
+            maskLayer.path = maskPath.cgPath
+
+            layer.mask = maskLayer
+        }
+
+        required init?(coder aDecoder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
         }
         
         deinit {

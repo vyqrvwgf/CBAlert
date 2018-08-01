@@ -18,21 +18,11 @@ class AlertViewController: UIViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "more", style: .plain, target: self, action: #selector(onTapMore))
         
-        alert
-            .add(of: _Alert.Item(icon: nil, title: "1", handler: {
-                
-            }))
-            .add(of: _Alert.Item(icon: nil, title: "2", handler: {
-                
-            }))
-            .add(of: _Alert.Item(icon: nil, title: "3", handler: {
-                
-            }))
-            .add(of: _Alert.Item(icon: nil, title: "4", handler: {
-                
-            }))
-            .add(of: _Alert.Item(icon: nil, title: "5", handler: {
-                
+        alert.set(with: [1, 2, 3, 4, 5]
+            .map({
+                _Alert.Item(icon: nil, title: "\($0)", handler: { (title) in
+                    print(title)
+                })
             }))
     }
 
@@ -52,15 +42,14 @@ class AlertViewController: UIViewController {
     }
     */
     
-    let alert = _Alert(contentClazz: ContentItem.self, cancelClazz: CancelItem.self)
+    let alert = _Alert.alert(with: .collection)
     
     // MARK: - Custom Method
     @objc private func onTapMore() {
-        UIApplication.shared.keyWindow?.present(with: alert)
+        
+        alert.show()
     }
 }
-
-
 
 class CancelItem: NSObject, Cancel {
     
@@ -102,6 +91,4 @@ class ContentItem: NSObject, Content {
     }
     
     var dismiss: () -> () = { }
-    
-    
 }

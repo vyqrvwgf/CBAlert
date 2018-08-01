@@ -11,30 +11,16 @@ import Foundation
 public protocol Content {
     
     var dismiss: ()->() { set get }
-    
     func view() -> UIView
-    // 提醒设置frame
     func frame() -> CGRect
-    
     func set(with items: [_Alert.Item])
 }
 
 public protocol Cancel {
     
     var dismiss: ()->() { set get }
-    
     func view() -> UIView
     func frame() -> CGRect
-}
-
-extension UIView {
-    
-    fileprivate static var alert: _Alert?
-    
-    public func present(with alert: _Alert) {
-        UIView.alert = alert
-        alert.show()
-    }
 }
 
 public class _Alert {
@@ -60,7 +46,7 @@ public class _Alert {
         return self
     }
     
-    fileprivate func show() {
+    public func show() {
         prepare()
         UIView.animate(withDuration: 0.25) {
             self.container.state = .show
@@ -133,7 +119,6 @@ public class _Alert {
     }
     
     private func complete() {
-        UIView.alert = nil
         cover.removeFromSuperview()
         container.removeFromSuperview()
     }
