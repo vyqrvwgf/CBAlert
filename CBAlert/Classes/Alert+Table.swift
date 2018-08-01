@@ -7,7 +7,7 @@
 
 import Foundation
 
-class _Table: NSObject, Content, UITableViewDataSource, UITableViewDelegate {
+public class _Table: NSObject, Content, UITableViewDataSource, UITableViewDelegate {
     
     fileprivate static let itemHeight: CGFloat = 50.0
     
@@ -34,18 +34,18 @@ class _Table: NSObject, Content, UITableViewDataSource, UITableViewDelegate {
     }
     
     // MARK: - UITableViewDataSource
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(ListCell.self), for: indexPath) as! ListCell
         cell.config(title: items[indexPath.row].title)
         return cell
     }
     
     // MARK: - UITableViewDelegate
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
         dismiss()
@@ -53,17 +53,17 @@ class _Table: NSObject, Content, UITableViewDataSource, UITableViewDelegate {
     }
     
     // MARK: - Content
-    var dismiss: () -> () = {}
+    public var dismiss: () -> () = {}
     
-    func view() -> UIView {
+    public func view() -> UIView {
         return tableView
     }
     
-    func frame() -> CGRect {
+    public func frame() -> CGRect {
         return tableView.frame
     }
     
-    func set(with items: [_Alert.Item]) {
+    public func set(with items: [_Alert.Item]) {
         self.items = items
         
         tableView.frame = CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.width, height: CGFloat(items.count)*_Table.itemHeight)

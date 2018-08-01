@@ -7,7 +7,7 @@
 
 import Foundation
 
-class _Collection: NSObject, Content, UICollectionViewDataSource, UICollectionViewDelegate {
+public class _Collection: NSObject, Content, UICollectionViewDataSource, UICollectionViewDelegate {
     
     // MARK: - Private
     private var items: [_Alert.Item] = [_Alert.Item]()
@@ -33,11 +33,11 @@ class _Collection: NSObject, Content, UICollectionViewDataSource, UICollectionVi
     }
     
     // MARK: - UICollectionViewDataSource
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return items.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(FlowLayoutCell.self), for: indexPath) as! FlowLayoutCell
         let item = items[indexPath.item]
         cell.config(icon: item.icon, title: item.title)
@@ -45,7 +45,7 @@ class _Collection: NSObject, Content, UICollectionViewDataSource, UICollectionVi
     }
     
     // MARK: - UICollectionViewDelegate
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         
         dismiss()
@@ -53,17 +53,17 @@ class _Collection: NSObject, Content, UICollectionViewDataSource, UICollectionVi
     }
     
     // MARK: - Subview
-    var dismiss = { }
+    public var dismiss = { }
     
-    func view() -> UIView {
+    public func view() -> UIView {
         return collectionView
     }
     
-    func frame() -> CGRect {
+    public func frame() -> CGRect {
         return collectionView.frame
     }
     
-    func set(with items: [_Alert.Item]) {
+    public func set(with items: [_Alert.Item]) {
         self.items = items
         
         var count: Int = items.count
