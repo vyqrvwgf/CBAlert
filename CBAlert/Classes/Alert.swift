@@ -60,7 +60,7 @@ public class _Alert {
         return self
     }
     
-    public func show() {
+    fileprivate func show() {
         prepare()
         UIView.animate(withDuration: 0.25) {
             self.container.state = .show

@@ -56,9 +56,8 @@ class AlertViewController: UIViewController {
     
     // MARK: - Custom Method
     @objc private func onTapMore() {
-        alert.show()
+        UIApplication.shared.keyWindow?.present(with: alert)
     }
-
 }
 
 
