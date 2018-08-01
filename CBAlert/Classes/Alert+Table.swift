@@ -94,7 +94,7 @@ class _Table: NSObject, Content, UITableViewDataSource, UITableViewDelegate {
         tableView.frame = CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.width, height: totoalHeight)
         tableView.reloadData()
         
-        tableView.mask?.layer = corner()
+//        tableView.mask?.layer = corner()
     }
 }
 

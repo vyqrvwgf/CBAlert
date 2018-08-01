@@ -15,6 +15,7 @@ class AlertViewController: UIViewController, UITableViewDataSource, UITableViewD
         let table = UITableView(frame: self.view.bounds, style: .plain)
         table.dataSource = self
         table.delegate = self
+        table.register(UITableViewCell.self, forCellReuseIdentifier: NSStringFromClass(UITableViewCell.self))
         return table
     }()
     
@@ -24,23 +25,35 @@ class AlertViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(UITableViewCell.self), for: indexPath)
-        cell.textLabel?.text = _Alert._Style._allCases
+        cell.textLabel?.text = "show \(_Alert._Style._allCases[indexPath.row].rawValue)"
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        switch _Alert._Style._allCases[indexPath.row] {
+        case .collection:
+            collection.show()
+        case .table:
+            table.show()
+        }
+    }
 
+    let items = [1, 2, 3, 4, 5].map({
+        _Alert.Item(icon: nil, title: "\($0)", handler: { (title) in
+            print(title)
+        })
+    })
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = .white
+        view.addSubview(tableView)
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "more", style: .plain, target: self, action: #selector(onTapMore))
-        
-        alert.set(with: [1, 2, 3, 4, 5]
-            .map({
-                _Alert.Item(icon: nil, title: "\($0)", handler: { (title) in
-                    print(title)
-                })
-            }))
+        collection.set(with: items)
+        table.set(with: items)
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,11 +72,6 @@ class AlertViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     */
     
-    let alert = _Alert.alert(with: .collection)
-    
-    // MARK: - Custom Method
-    @objc private func onTapMore() {
-        
-        alert.show()
-    }
+    let collection = _Alert.alert(with: .collection)
+    let table = _Alert.alert(with: .table)
 }

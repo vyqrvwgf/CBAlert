@@ -9,9 +9,9 @@ import Foundation
 
 extension _Alert {
     
-    public enum _Style {
-        case table
-        case collection
+    public enum _Style: String {
+        case table = "table"
+        case collection = "collection"
         
         public static var _allCases: [_Style] = [.table, .collection]
     }
