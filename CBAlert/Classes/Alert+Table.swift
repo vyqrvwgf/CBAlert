@@ -44,20 +44,6 @@ class _Table: NSObject, Content, UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let title = items[indexPath.row].title
-        if let heightCache = map[title], heightCache > 0 {
-            return heightCache
-        } else {
-            let height = title.boundingRect(with: CGSize(width: UIScreen.main.bounds.width - 30.0, height: CGFloat(MAXFLOAT)),
-                                            options: NSStringDrawingOptions.usesLineFragmentOrigin,
-                                            attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 17.0)],
-                                            context: nil).height + 30.0
-            map[title] = height
-            return height
-        }
-    }
-    
     // MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -79,22 +65,11 @@ class _Table: NSObject, Content, UITableViewDataSource, UITableViewDelegate {
     
     func set(with items: [_Alert.Item]) {
         self.items = items
-        let totoalHeight = items.map { (item) -> CGFloat in
-            if let heightCache = map[item.title], heightCache > 0 {
-                return heightCache
-            } else {
-                let height = item.title.boundingRect(with: CGSize(width: UIScreen.main.bounds.width - 30.0, height: CGFloat(MAXFLOAT)),
-                                                     options: NSStringDrawingOptions.usesLineFragmentOrigin,
-                                                     attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 17.0)],
-                                                     context: nil).height + 30.0
-                map[item.title] = height
-                return height
-            }
-            }.reduce(0.0, { $0 + $1 })
-        tableView.frame = CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.width, height: totoalHeight)
+        
+        tableView.frame = CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.width, height: CGFloat(items.count)*_Table.itemHeight)
         tableView.reloadData()
         
-//        tableView.mask?.layer = corner()
+        tableView.layer.mask = corner()
     }
 }
 
@@ -115,6 +90,7 @@ class ListCell: UITableViewCell {
     
     let separator: UIView = {
         let view = UIView(frame: .zero)
+        view.backgroundColor = .lightGray
         return view
     }()
     
@@ -125,8 +101,8 @@ class ListCell: UITableViewCell {
         contentView.addSubview(titleLabel)
         contentView.addSubview(separator)
         
-        titleLabel.frame = CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.width, height: _Table.itemHeight)
-        separator.frame = CGRect(x: 0.0, y: titleLabel.frame.maxY - 0.5, width: UIScreen.main.bounds.width, height: 0.5)
+        titleLabel.frame = CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.width, height: _Table.itemHeight - 0.5)
+        separator.frame = CGRect(x: 0.0, y: _Table.itemHeight - 0.5, width: UIScreen.main.bounds.width, height: 0.5)
     }
     
     required init?(coder aDecoder: NSCoder) {
