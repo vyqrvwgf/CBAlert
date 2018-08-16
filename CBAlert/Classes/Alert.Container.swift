@@ -74,9 +74,9 @@ extension _Alert {
         internal func set(content: Content, cancel: Cancel?) {
             
             let _content = content.view()
-            _content.frame = CGRect(x: 0.0, y: 0.0, width: _content.bounds.width, height: _content.bounds.height)
-            
             totoalHeight = content.frame().height
+            _content.frame = CGRect(x: 0.0, y: 0.0, width: _content.bounds.width, height: totoalHeight)
+            
             addSubview(_content)
             
             if let cancel = cancel {
