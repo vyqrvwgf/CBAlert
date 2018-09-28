@@ -128,7 +128,7 @@ class FlowLayout: UICollectionViewLayout {
         return (UIScreen.main.bounds.width - 60.0 * CGFloat(maxHorizontal)) / CGFloat(maxHorizontal + 1)
     }
     var edge: UIEdgeInsets {
-        return UIEdgeInsetsMake(30.0, offset, 20.0, offset)
+        return UIEdgeInsets(top: 30.0, left: offset, bottom: 20.0, right: offset)
     }
     
     let maxHorizontal: Int = 3

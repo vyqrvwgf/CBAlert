@@ -1,7 +1,7 @@
 {
   "name": "CBAlert",
-  "version": "0.1.0",
-  "summary": "A short description of CBAlert.",
+  "version": "0.1.5",
+  "summary": "A quick alert",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/vyqrvwgf/CBAlert",
   "license": {
@@ -13,10 +13,11 @@
   },
   "source": {
     "git": "https://github.com/vyqrvwgf/CBAlert.git",
-    "tag": "0.1.0"
+    "tag": "0.1.5"
   },
   "platforms": {
     "ios": "8.0"
   },
+  "swift_version": "4.2",
   "source_files": "CBAlert/Classes/**/*"
 }
