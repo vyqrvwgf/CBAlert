@@ -31,7 +31,7 @@ class _Cancel: NSObject, Cancel {
     // MARK: - Private
     private lazy var cancel: UIButton = {
         let button = UIButton(type: .custom)
-        button.frame = CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.width, height: 50.0)
+        button.frame = CGRect(x: 8.0, y: 0.0, width: UIScreen.main.bounds.width - 16.0, height: 50.0)
         button.setTitle(NSLocalizedString("Cancel", comment: ""), for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = .white

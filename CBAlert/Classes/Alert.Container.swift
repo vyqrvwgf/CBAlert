@@ -75,13 +75,13 @@ extension _Alert {
             
             let _content = content.view()
             totoalHeight = content.frame().height
-            _content.frame = CGRect(x: 0.0, y: 0.0, width: _content.bounds.width, height: totoalHeight)
+            _content.frame = CGRect(x: content.frame().origin.x, y: 0.0, width: _content.bounds.width, height: totoalHeight)
             
             addSubview(_content)
             
             if let cancel = cancel {
                 let _cancel = cancel.view()
-                _cancel.frame = CGRect(x: 0.0, y: _content.frame.maxY, width: _cancel.bounds.width, height: _cancel.bounds.height)
+                _cancel.frame = CGRect(x: _cancel.frame.origin.x, y: _content.frame.maxY, width: _cancel.bounds.width, height: _cancel.bounds.height)
                 
                 totoalHeight += cancel.frame().height
                 addSubview(_cancel)

@@ -66,7 +66,7 @@ public class _Table: NSObject, Content, UITableViewDataSource, UITableViewDelega
     public func set(with items: [_Alert.Item]) {
         self.items = items
         
-        tableView.frame = CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.width, height: CGFloat(items.count)*_Table.itemHeight)
+        tableView.frame = CGRect(x: 8.0, y: 0.0, width: UIScreen.main.bounds.width - 16.0, height: CGFloat(items.count)*_Table.itemHeight)
         tableView.reloadData()
         
         tableView.layer.mask = corner()
