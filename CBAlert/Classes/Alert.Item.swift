@@ -12,7 +12,7 @@ extension _Alert {
     
     public typealias Action = (_ title: String)->()
     
-    public class Item {
+    open class Item {
         
         public var icon: UIImage?
         public var title: String = ""
