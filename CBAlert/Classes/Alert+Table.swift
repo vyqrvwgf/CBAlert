@@ -71,6 +71,10 @@ public class _Table: NSObject, Content, UITableViewDataSource, UITableViewDelega
         
         tableView.layer.mask = corner()
     }
+    
+    deinit {
+        print("Alert+Table deinit")
+    }
 }
 
 class ListCell: UITableViewCell {
